@@ -1,3 +1,8 @@
 if game.PlaceId == 16732694052 then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/caduxxzz-cloud/Fisch/refs/heads/main/IrishHub"))()
+    local success, err = pcall(function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/caduxxzz-cloud/Fisch/refs/heads/main/IrishHub"))()
+    end)
+    if not success then
+        warn("Erro ao executar IrishHub: " .. tostring(err))
+    end
 end
