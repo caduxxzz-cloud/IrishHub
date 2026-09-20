@@ -1,8 +1,10 @@
+-- Coloca isso ANTES de tudo:
 if game.PlaceId == 16732694052 then
-    local success, err = pcall(function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/caduxxzz-cloud/Fisch/refs/heads/main/IrishHub"))()
-    end)
-    if not success then
-        warn("Erro ao executar IrishHub: " .. tostring(err))
-    end
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/caduxxzz-cloud/Fisch/refs/heads/main/IrishHub"))()
+    return
 end
+
+-- Só depois vem a linha problemática:
+local UniverseID = game:GetService("HttpService"):JSONDecode(game:HttpGet("https://apis.roblox.com/universes/v1/places/"..game.PlaceId.."/universe")).universeId
+
+-- ... o resto do loader igual estava
